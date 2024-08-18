@@ -15,4 +15,4 @@ def get_settings() -> Settings:
 
 
 app.include_router(health_check.router,
-                   prefix="/api/" + get_settings().current_preffix)
+                   prefix="/api/" + get_settings().current_prefix)
