@@ -2,7 +2,7 @@
 
 ---
 
-[![Microservice App](https://github.com/skvggor/python-fastapi/actions/workflows/build-and-testing.yml/badge.svg?branch=main)](https://github.com/skvggor/python-fastapi/actions/workflows/build-and-testing.yml)
+[![microservice-python-fastapi](https://github.com/skvggor/microservice-python-fastapi/actions/workflows/build-and-testing.yml/badge.svg)](https://github.com/skvggor/microservice-python-fastapi/actions/workflows/build-and-testing.yml)
 
 ---
 
