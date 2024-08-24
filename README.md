@@ -2,6 +2,10 @@
 
 ---
 
+[![Microservice App](https://github.com/skvggor/python-fastapi/actions/workflows/build-and-testing.yml/badge.svg?branch=main)](https://github.com/skvggor/python-fastapi/actions/workflows/build-and-testing.yml)
+
+---
+
 ## Dependencies (docker)
 
 -   Docker

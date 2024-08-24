@@ -3,6 +3,11 @@
 
 name: Python application
 
+env:
+    PORT: 8000
+    APP_NAME: "Microservice App"
+    CURRENT_PREFIX: "v1"
+
 on:
     push:
         branches: ["main"]
@@ -18,7 +23,7 @@ jobs:
 
         steps:
             - uses: actions/checkout@v4
-            - name: Set up Python 3.10
+            - name: Set up Python 3.11
               uses: actions/setup-python@v3
               with:
                   python-version: "3.11"
