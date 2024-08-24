@@ -7,7 +7,10 @@ from src.v1.privateendpoint import router as private_endpoint
 
 settings = Settings()
 
-app = FastAPI(prefix=f"/api/{settings.current_prefix}")
+app = FastAPI(title=settings.app_name)
 
-app.include_router(health_check.router)
-app.include_router(private_endpoint.router)
+app.include_router(health_check.router,
+                   prefix=f"/api/{settings.current_prefix}")
+
+app.include_router(private_endpoint.router,
+                   prefix=f"/api/{settings.current_prefix}")

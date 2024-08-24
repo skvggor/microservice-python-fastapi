@@ -1,2 +1,7 @@
 pydantic-settings
 fastapi[all]
+pyjwt[crypto]
+pytest
+pytest-cov
+pytest-asyncio
+requests

@@ -1,14 +1,16 @@
-from functools import lru_cache
+from src.config import Settings
 
-from config import Settings
-
-
-@lru_cache
-def get_settings() -> Settings:
-    return Settings()
+settings = dict(Settings())
 
 
 def test_config():
-    assert get_settings().current_prefix == "v1"
-    assert get_settings().port == 8000
-    assert get_settings().app_name == "Microservice App"
+    expected_keys = [
+        'port',
+        'app_name',
+        'current_prefix'
+    ]
+
+    for key in expected_keys:
+        value = settings.get(key)
+
+        assert value and value != ""

@@ -1,0 +1,9 @@
+services:
+    app:
+        build: .
+        ports:
+            - ${PORT}:8000
+        environment:
+            - PORT=${PORT}
+            - APP_NAME=${APP_NAME}
+            - CURRENT_PREFIX=${CURRENT_PREFIX}

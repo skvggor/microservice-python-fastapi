@@ -1,27 +1,37 @@
-from fastapi import APIRouter
-from src.config import Settings
+from fastapi import APIRouter, Depends
 
-settings = Settings()
+from src.v1.privateendpoint.service import get_data
+
+from src.v1.privateendpoint.models import (
+    PrivateEndpointPayloadModel,
+    PrivateEndpointResponseModel
+)
 
 router = APIRouter()
 
-doc = {
+get_doc = {
     200: {
         "content": {
             "application/json": {
-                "example": {"from_user_param": "from_user_param"}
+                "example": {
+                    "fullname": "first_name last_name"
+                }
             }
         }
     }
 }
 
 
-@router.get("/private-endpoint/{from_user_param}",
-            tags=[f"/api/{settings.current_prefix}/private-endpoint"],
-            responses=doc)
-async def private_endpoint(from_user_param: str):
+@router.get("/privateendpoint",
+            tags=["Private endpoint"],
+            responses=get_doc,
+            response_model=PrivateEndpointResponseModel)
+async def privateendpoint(
+    model: PrivateEndpointPayloadModel = Depends()
+) -> PrivateEndpointResponseModel:
     """
-    Retorna um parâmetro recebido.
+        Return data from service.
     """
+    response = get_data(model)
 
-    return {"from_user_param": from_user_param}
+    return response

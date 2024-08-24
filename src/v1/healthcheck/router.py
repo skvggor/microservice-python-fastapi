@@ -1,7 +1,6 @@
 from fastapi import APIRouter
-from src.config import Settings
 
-settings = Settings()
+from src.v1.healthcheck.models import HealthCheckResponseModel
 
 router = APIRouter()
 
@@ -17,12 +16,11 @@ doc = {
 
 
 @router.get("/healthcheck",
-            tags=[f"/api/{settings.current_prefix}/healthcheck"],
+            tags=["Health check"],
             responses=doc)
-async def health_check():
+async def health_check() -> HealthCheckResponseModel:
     """
-    Retorna um status de OK para verificar
-    se a aplicação está funcionando corretamente.
+        Return a status of OK to check if
+        the application is working correctly.
     """
-
     return {"status": "OK"}
