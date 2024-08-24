@@ -4,33 +4,34 @@
 name: Python application
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    push:
+        branches: ["main"]
+    pull_request:
+        branches: ["main"]
 
 permissions:
-  contents: read
+    contents: read
 
 jobs:
-  build:
+    build:
+        runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.11"
-    - name: Install dependencies
-      run: |
-        python3 -m venv venv
-        source venv/bin/activate
-        pip install pip-tools
-        pip-compile requirements.in
-        pip install -r requirements.txt
-    - name: Test with pytest
-      run: |
-        pytest -vv --cov=. --cov=src --cov-report=term-missing --cov-report=xml .
-        
+        steps:
+            - uses: actions/checkout@v4
+            - name: Set up Python 3.10
+              uses: actions/setup-python@v3
+              with:
+                  python-version: "3.11"
+            - name: Install dependencies
+              run: |
+                  python3 -m venv venv
+                  source venv/bin/activate
+                  pip install pip-tools
+                  pip-compile requirements.in
+                  pip install -r requirements.txt
+            - name: Test with pytest
+              run: |
+                  pip install pip-tools
+                  pip-compile requirements.in
+                  pip install -r requirements.txt
+                  pytest -vv --cov=. --cov=src --cov-report=term-missing --cov-report=xml .
