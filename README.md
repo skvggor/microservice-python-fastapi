@@ -1,5 +1,9 @@
 # microservice-python-fastapi
 
+WORK IN PROGRESS
+
+A scaffold for microservices using Python and FastAPI. This project is intended to be used as a template for new projects.
+
 ---
 
 [![microservice-python-fastapi](https://github.com/skvggor/microservice-python-fastapi/actions/workflows/build-and-testing.yml/badge.svg)](https://github.com/skvggor/microservice-python-fastapi/actions/workflows/build-and-testing.yml)
